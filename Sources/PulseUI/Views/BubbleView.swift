@@ -12,6 +12,8 @@ import SwiftUI
 public struct BubbleView: View {
     @EnvironmentObject private var pulseState: PulseState
 
+    @State private var position = CGPoint(x: 0, y: 0)
+
     public init() {}
 
     public var body: some View {
@@ -24,6 +26,12 @@ public struct BubbleView: View {
                 .padding(4)
                 .background(Circle().fill(.blue))
         }
+        .gesture(DragGesture().onChanged { gesture in
+            withAnimation {
+                position = gesture.location
+            }
+        })
+        .offset(x: position.x, y: position.y)
     }
 }
 
