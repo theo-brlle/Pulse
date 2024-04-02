@@ -271,6 +271,7 @@
 		0CFF79DD29EB7A8E00BE767B /* SessionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFF79DB29EB7A8B00BE767B /* SessionListView.swift */; };
 		0CFF79DF29EB7B4300BE767B /* SessionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFF79DE29EB7B4300BE767B /* SessionPickerView.swift */; };
 		0CFF79E229EC1FA200BE767B /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFF79E029EC1F7800BE767B /* ImageProcessor.swift */; };
+		E480C6502BB86F3500057744 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E480C64F2BB86F3500057744 /* BubbleView.swift */; };
 		E95D6C562B7314E6004D28E4 /* HARDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D6C552B7314E6004D28E4 /* HARDocument.swift */; };
 /* End PBXBuildFile section */
 
@@ -728,6 +729,7 @@
 		0CFF79E029EC1F7800BE767B /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 		49E82A8526D107A00070244F /* AlamofireIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireIntegration.swift; sourceTree = "<group>"; };
 		49E82A8826D1083D0070244F /* MoyaIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaIntegration.swift; sourceTree = "<group>"; };
+		E480C64F2BB86F3500057744 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		E95D6C552B7314E6004D28E4 /* HARDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HARDocument.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1229,6 +1231,7 @@
 				0CF0D60C296F189600EED9D4 /* PulseUI+UIKit.swift */,
 				0CF0D5AD296F189500EED9D4 /* ContextMenus.swift */,
 				0C4BF92C298817EC0086A6A7 /* IntlineTabBar.swift */,
+				E480C64F2BB86F3500057744 /* BubbleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2002,6 +2005,7 @@
 				0CB34596298CBC37009428B2 /* ManagedObjectsObserver.swift in Sources */,
 				0CF0D669296F189600EED9D4 /* NetworkHeadersCell.swift in Sources */,
 				0CF0D67C296F189600EED9D4 /* ConsoleView-macos.swift in Sources */,
+				E480C6502BB86F3500057744 /* BubbleView.swift in Sources */,
 				0CF0D612296F189600EED9D4 /* Regex.swift in Sources */,
 				0C0352DE299482F3008CDEF8 /* MockStore.swift in Sources */,
 				0CF0D62E296F189600EED9D4 /* RichTextView-watchos.swift in Sources */,
