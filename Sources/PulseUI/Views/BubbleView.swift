@@ -10,15 +10,13 @@ import SwiftUI
 
 @available(iOS 14, *)
 public struct BubbleView: View {
-    @Binding private var isConsoleViewPresented: Bool
+    @EnvironmentObject private var pulseState: PulseState
 
-    public init(isConsoleViewPresented: Binding<Bool>) {
-        self._isConsoleViewPresented = isConsoleViewPresented
-    }
+    public init() {}
 
     public var body: some View {
         Button {
-            isConsoleViewPresented = true
+            pulseState.isConsolePresented = true
         } label: {
             Image(systemName: "network")
                 .imageScale(.large)
@@ -27,4 +25,10 @@ public struct BubbleView: View {
                 .background(Circle().fill(.blue))
         }
     }
+}
+
+public final class PulseState: ObservableObject {
+    @Published public var isConsolePresented: Bool = false
+
+    public init() {}
 }
