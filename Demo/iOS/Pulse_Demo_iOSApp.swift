@@ -9,12 +9,9 @@ import PulseUI
 struct PulseDemo_iOS: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
-    @StateObject private var pulseState = PulseState()
-
     var body: some Scene {
         WindowGroup {
             RootView()
-                .environmentObject(pulseState)
         }
     }
 }
@@ -35,27 +32,19 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate, ObservableObject {
     var bubbleWindow: UIWindow?
-    weak var bubbleWindowScene: UIWindowScene?
-
-    var pulseState: PulseState? {
-        didSet {
-            setupBubbleWindow()
-        }
-    }
 
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
-        bubbleWindowScene = scene as? UIWindowScene
+        guard let scene = scene as? UIWindowScene else { return }
+        setupBubbleWindow(in: scene)
     }
 
-    func setupBubbleWindow() {
-        guard let bubbleWindowScene, let pulseState else { return }
-
-        let bubbleWindow = PassthroughWindow(windowScene: bubbleWindowScene)
-        let bubbleView = BubbleView().environmentObject(pulseState)
+    func setupBubbleWindow(in scene: UIWindowScene) {
+        let bubbleWindow = PassthroughWindow(windowScene: scene)
+        let bubbleView = BubbleView()
         let bubbleViewController = UIHostingController(rootView: bubbleView)
 
         bubbleViewController.view.backgroundColor = .clear

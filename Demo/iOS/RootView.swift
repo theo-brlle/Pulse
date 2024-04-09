@@ -10,21 +10,17 @@ import SwiftUI
 import PulseUI
 
 struct RootView: View {
-    @EnvironmentObject var pulseState: PulseState
-    @EnvironmentObject var sceneDelegate: SceneDelegate
+    @AppStorage("PulseBubblePresentation") private var isPulseConsoleViewPresented: Bool = false
 
     var body: some View {
         VStack {
             Text("Pulse UI Demo")
                 .font(.title.bold())
         }
-        .fullScreenCover(isPresented: $pulseState.isConsolePresented) {
+        .fullScreenCover(isPresented: $isPulseConsoleViewPresented) {
             NavigationView {
                 ConsoleView(store: .demo)
             }
-        }
-        .onAppear {
-            sceneDelegate.pulseState = pulseState
         }
     }
 }
