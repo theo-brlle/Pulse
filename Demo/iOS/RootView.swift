@@ -10,7 +10,7 @@ import SwiftUI
 import PulseUI
 
 struct RootView: View {
-    @AppStorage("PulseBubblePresentation") private var isPulseConsoleViewPresented: Bool = false
+    @State private var isPulseConsoleViewPresented: Bool = false
 
     var body: some View {
         VStack {
@@ -21,6 +21,9 @@ struct RootView: View {
             NavigationView {
                 ConsoleView(store: .demo)
             }
+        }
+        .onPulseBubbleTap {
+            isPulseConsoleViewPresented = true
         }
     }
 }

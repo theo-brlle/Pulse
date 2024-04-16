@@ -10,15 +10,13 @@ import SwiftUI
 
 @available(iOS 14, *)
 public struct BubbleView: View {
-    @Environment(\.pulseBubbleAction) private var action
-
     @State private var position = CGPoint(x: 0, y: 50)
 
     public init() {}
 
     public var body: some View {
         Button {
-            action()
+            NotificationCenter.default.post(name: .pulseBubbleTapped, object: nil)
         } label: {
             Image(systemName: "network")
                 .imageScale(.large)
@@ -33,13 +31,14 @@ public struct BubbleView: View {
     }
 }
 
-public struct PulseBubbleKey: EnvironmentKey {
-    public static var defaultValue: () -> Void = { }
+extension Notification.Name {
+    static let pulseBubbleTapped = Notification.Name("PulseBubbleTappedNotification")
 }
 
-public extension EnvironmentValues {
-    var pulseBubbleAction: () -> Void {
-        get { self[PulseBubbleKey.self] }
-        set { self[PulseBubbleKey.self] = newValue }
+public extension View {
+    func onPulseBubbleTap(perform action: @escaping () -> Void) -> some View {
+        onReceive(NotificationCenter.default.publisher(for: .pulseBubbleTapped)) { _ in
+            action()
+        }
     }
 }

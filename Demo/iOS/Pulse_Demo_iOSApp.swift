@@ -13,9 +13,6 @@ struct PulseDemo_iOS: App {
         WindowGroup {
             RootView()
         }
-        .environment(\.pulseBubbleAction) {
-            print("click")
-        }
     }
 }
 
