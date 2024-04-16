@@ -10,7 +10,7 @@ import SwiftUI
 
 @available(iOS 14, *)
 public struct BubbleView: View {
-    @AppStorage("PulseBubblePresentation") private var isConsoleViewPresented: Bool = false
+    @Environment(\.pulseBubbleAction) private var action
 
     @State private var position = CGPoint(x: 0, y: 50)
 
@@ -18,9 +18,7 @@ public struct BubbleView: View {
 
     public var body: some View {
         Button {
-            withAnimation {
-                isConsoleViewPresented = true
-            }
+            action()
         } label: {
             Image(systemName: "network")
                 .imageScale(.large)
@@ -32,5 +30,16 @@ public struct BubbleView: View {
             position = gesture.location
         })
         .offset(x: position.x, y: position.y)
+    }
+}
+
+public struct PulseBubbleKey: EnvironmentKey {
+    public static var defaultValue: () -> Void = { }
+}
+
+public extension EnvironmentValues {
+    var pulseBubbleAction: () -> Void {
+        get { self[PulseBubbleKey.self] }
+        set { self[PulseBubbleKey.self] = newValue }
     }
 }
