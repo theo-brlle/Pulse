@@ -7,23 +7,12 @@
 //
 
 import SwiftUI
-import PulseUI
 
 struct RootView: View {
     @State private var isPulseConsoleViewPresented: Bool = false
 
     var body: some View {
-        VStack {
-            Text("Pulse UI Demo")
-                .font(.title.bold())
-        }
-        .fullScreenCover(isPresented: $isPulseConsoleViewPresented) {
-            NavigationView {
-                ConsoleView(store: .demo)
-            }
-        }
-        .onPulseBubbleTap {
-            isPulseConsoleViewPresented = true
-        }
+        Text("Pulse UI Demo")
+            .font(.title.bold())
     }
 }

@@ -7,16 +7,24 @@
 //
 
 import SwiftUI
+import Pulse
 
 @available(iOS 14, *)
 public struct BubbleView: View {
-    @State private var position = CGPoint(x: 0, y: 50)
+    @State private var isConsoleViewPresented: Bool = false
+    @State private var position: CGPoint = CGPoint(x: 0, y: 50)
 
-    public init() {}
+    private let store: LoggerStore
+    private let consoleMode: ConsoleMode
+
+    public init(store: LoggerStore = .shared, consoleMode: ConsoleMode = .all) {
+        self.store = store
+        self.consoleMode = consoleMode
+    }
 
     public var body: some View {
         Button {
-            NotificationCenter.default.post(name: .pulseBubbleTapped, object: nil)
+            isConsoleViewPresented = true
         } label: {
             Image(systemName: "network")
                 .imageScale(.large)
@@ -28,17 +36,10 @@ public struct BubbleView: View {
             position = gesture.location
         })
         .offset(x: position.x, y: position.y)
-    }
-}
-
-extension Notification.Name {
-    static let pulseBubbleTapped = Notification.Name("PulseBubbleTappedNotification")
-}
-
-public extension View {
-    func onPulseBubbleTap(perform action: @escaping () -> Void) -> some View {
-        onReceive(NotificationCenter.default.publisher(for: .pulseBubbleTapped)) { _ in
-            action()
+        .fullScreenCover(isPresented: $isConsoleViewPresented) {
+            NavigationView {
+                ConsoleView(store: store, mode: consoleMode)
+            }
         }
     }
 }
