@@ -13,6 +13,7 @@ import Pulse
 public struct BubbleView: View {
     @State private var isConsoleViewPresented: Bool = false
     @State private var position: CGPoint = CGPoint(x: 0, y: 50)
+    @State private var bubbleSize: CGSize = CGSize()
 
     private let store: LoggerStore
     private let consoleMode: ConsoleMode
@@ -32,7 +33,8 @@ public struct BubbleView: View {
                 .padding(4)
                 .background(Circle().fill(.blue))
         }
-        .offset(x: position.x, y: position.y)
+        .saveSize(in: $bubbleSize)
+        .offset(x: position.x - bubbleSize.width / 2, y: position.y - bubbleSize.height / 2)
         .highPriorityGesture(dragGesture)
         .fullScreenCover(isPresented: $isConsoleViewPresented) {
             NavigationView {
@@ -40,11 +42,15 @@ public struct BubbleView: View {
             }
         }
     }
+}
 
-    private var dragGesture: some Gesture {
+private extension BubbleView {
+    var dragGesture: some Gesture {
         DragGesture()
             .onChanged { gesture in
-                position = gesture.location
+                withAnimation {
+                    position = gesture.location
+                }
             }
     }
 }
