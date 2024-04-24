@@ -44,7 +44,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, ObservableObject {
 
     func setupBubbleWindow(in scene: UIWindowScene) {
         let bubbleWindow = PassthroughWindow(windowScene: scene)
-        let bubbleView = BubbleView()
+        let bubbleView = BubbleView(store: .demo)
         let bubbleViewController = UIHostingController(rootView: bubbleView)
 
         bubbleViewController.view.backgroundColor = .clear
