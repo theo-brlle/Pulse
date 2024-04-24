@@ -32,14 +32,19 @@ public struct BubbleView: View {
                 .padding(4)
                 .background(Circle().fill(.blue))
         }
-        .gesture(DragGesture().onChanged { gesture in
-            position = gesture.location
-        })
         .offset(x: position.x, y: position.y)
+        .highPriorityGesture(dragGesture)
         .fullScreenCover(isPresented: $isConsoleViewPresented) {
             NavigationView {
                 ConsoleView(store: store, mode: consoleMode)
             }
         }
+    }
+
+    private var dragGesture: some Gesture {
+        DragGesture()
+            .onChanged { gesture in
+                position = gesture.location
+            }
     }
 }
