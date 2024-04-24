@@ -9,10 +9,29 @@
 import SwiftUI
 
 struct RootView: View {
-    @State private var isPulseConsoleViewPresented: Bool = false
+    @State private var isSheetPresented: Bool = false
 
     var body: some View {
-        Text("Pulse UI Demo")
-            .font(.title.bold())
+        VStack {
+            Text("Pulse UI Demo")
+                .font(.title.bold())
+
+            Button {
+                isSheetPresented = true
+            } label: {
+                Text("Present Sheet")
+            }
+        }
+        .sheet(isPresented: $isSheetPresented) {
+            Button {
+                isSheetPresented = false
+            } label: {
+                VStack {
+                    Image(systemName: "xmark.circle")
+
+                    Text("Dismiss Sheet")
+                }
+            }
+        }
     }
 }
