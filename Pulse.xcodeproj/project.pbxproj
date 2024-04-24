@@ -273,6 +273,7 @@
 		0CFF79E229EC1FA200BE767B /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFF79E029EC1F7800BE767B /* ImageProcessor.swift */; };
 		E444A1542BBC97E600A301DA /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444A1532BBC97E600A301DA /* RootView.swift */; };
 		E480C6502BB86F3500057744 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E480C64F2BB86F3500057744 /* BubbleView.swift */; };
+		E4B949D42BD9BC7700D5F663 /* SaveSizeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B949D32BD9BC7700D5F663 /* SaveSizeViewModifier.swift */; };
 		E95D6C562B7314E6004D28E4 /* HARDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95D6C552B7314E6004D28E4 /* HARDocument.swift */; };
 /* End PBXBuildFile section */
 
@@ -732,6 +733,7 @@
 		49E82A8826D1083D0070244F /* MoyaIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaIntegration.swift; sourceTree = "<group>"; };
 		E444A1532BBC97E600A301DA /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		E480C64F2BB86F3500057744 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
+		E4B949D32BD9BC7700D5F663 /* SaveSizeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveSizeViewModifier.swift; sourceTree = "<group>"; };
 		E95D6C552B7314E6004D28E4 /* HARDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HARDocument.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1194,6 +1196,7 @@
 				0C3002B22986CEF30055F6C2 /* LoggerStoreIndex.swift */,
 				0C1050E429E1FAC1006AFDAD /* Version.swift */,
 				E95D6C552B7314E6004D28E4 /* HARDocument.swift */,
+				E4B949D32BD9BC7700D5F663 /* SaveSizeViewModifier.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -2040,6 +2043,7 @@
 				0CF0D638296F189600EED9D4 /* ImageViewer.swift in Sources */,
 				0CF5E60929981ADF009FF7AE /* ShareStoreViewModel.swift in Sources */,
 				0CF0D67B296F189600EED9D4 /* ConsoleView-tvos.swift in Sources */,
+				E4B949D42BD9BC7700D5F663 /* SaveSizeViewModifier.swift in Sources */,
 				0CF0D66B296F189600EED9D4 /* NetworkCookiesCell.swift in Sources */,
 				0C2720892AF832C6005DDB1C /* StatusLabelViewModel.swift in Sources */,
 				0CF0D631296F189600EED9D4 /* RichTextViewModel.swift in Sources */,
